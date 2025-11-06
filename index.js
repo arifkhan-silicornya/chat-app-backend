@@ -43,6 +43,11 @@ function validateToken(token) {
 }
 
 // Auth endpoints (very simple, not production-ready)
+app.get("/", (req, res) => {
+  return res.status(200).json({ status: "Welcome To my chat app" });
+});
+
+// Auth endpoints (very simple, not production-ready)
 app.post("/api/register", (req, res) => {
   const { username, password, firstName } = req.body;
   if (!username || !password || !firstName)
@@ -159,5 +164,5 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => console.log(`Server listening on ${PORT}`));

@@ -1,0 +1,13 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - "3001:3001"
+    restart: always
+
+  client:
+    build: ../web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
